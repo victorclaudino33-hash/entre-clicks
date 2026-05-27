@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entre Clicks e Enganos</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Caveat+Brush&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen">
+
+<!-- ══════════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur"
+     style="background:rgba(244,241,234,.97);border-bottom:2px solid rgba(1,27,47,.12);">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+    <a href="#hero" class="flex items-center gap-2.5">
+      <span class="w-8 h-8 rounded-full flex items-center justify-center"
+            style="background:var(--yellow);">
+        <i data-lucide="megaphone" style="width:16px;height:16px;color:var(--ink);"></i>
+      </span>
+      <span class="font-archivo font-extrabold text-[15px] tracking-tight"
+            style="color:var(--ink);">
+        Entre Clicks <span style="color:var(--yellow);">&amp;</span> Enganos
+      </span>
+    </a>
+
+    <div class="hidden md:flex gap-7 text-[13px] font-archivo font-semibold">
+      <a href="#video"    class="nav-link" style="color:rgba(1,27,47,0.7);">Vídeo</a>
+      <a href="#problema" class="nav-link" style="color:rgba(1,27,47,0.7);">O Problema</a>
+      <a href="#dados"    class="nav-link" style="color:rgba(1,27,47,0.7);">Dados</a>
+      <a href="#pesquisa" class="nav-link" style="color:rgba(1,27,47,0.7);">Pesquisa</a>
+      <a href="#quiz"     class="nav-link" style="color:rgba(1,27,47,0.7);">Quiz</a>
+      <a href="#sobre"    class="nav-link" style="color:rgba(1,27,47,0.7);">Sobre</a>
+      <a href="#creditos" class="nav-link" style="color:rgba(1,27,47,0.7);">Créditos</a>
+      <a href="#midia2" class="nav-link" style="color:rgba(1,27,47,0.7);">Mídia</a>
+    </div>
+
+    <button id="mobile-menu-btn" class="md:hidden" style="color:var(--ink);">
+      <i data-lucide="menu" style="width:22px;height:22px"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu"
+       class="hidden md:hidden px-6 pb-4 flex flex-col gap-3 text-sm font-archivo font-semibold"
+       style="background:#F4F1EA;">
+    <a href="#video"    style="color:rgba(1,27,47,0.8);">Vídeo</a>
+    <a href="#problema" style="color:rgba(1,27,47,0.8);">O Problema</a>
+    <a href="#dados"    style="color:rgba(1,27,47,0.8);">Dados</a>
+    <a href="#pesquisa" style="color:rgba(1,27,47,0.8);">Pesquisa</a>
+    <a href="#quiz"     style="color:rgba(1,27,47,0.8);">Quiz</a>
+    <a href="#sobre"    style="color:rgba(1,27,47,0.8);">Sobre</a>
+    <a href="#creditos" style="color:rgba(1,27,47,0.8);">Créditos</a>
+    <a href="#midia2" style="color:rgba(1,27,47,0.8);">Mídia 2</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════ -->
+<section id="hero" class="relative pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden"
+         style="background:#F4F1EA;">
+
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <p class="eyebrow flex items-center" style="color:rgba(1,27,47,0.45);">
+      Entre Clicks · Projeto Acadêmico <span class="rule"></span>
+    </p>
+
+    <div class="grid md:grid-cols-12 gap-8 items-end mt-6 md:mt-8">
+      <div class="md:col-span-8">
+        <h1 class="font-display text-[clamp(72px,13vw,200px)]" style="color:var(--blue);">
+          Entre<br>Clicks<br>
+          <span style="display:inline-block;">&amp;</span> Enganos
+        </h1>
+        <p class="font-script text-[clamp(40px,7vw,88px)] -mt-3 md:-mt-6 leading-none"
+           style="color:var(--ink);">
+          vulnerabilidade digital &amp; a&nbsp;terceira idade
+        </p>
+      </div>
+
+      <div class="md:col-span-4">
+        <div class="max-w-sm">
+          <p class="eyebrow mb-3" style="color:rgba(1,27,47,0.45);">o que é isto</p>
+          <p class="text-[15px] leading-relaxed font-archivo" style="color:rgba(1,27,47,0.72);">
+            Como golpes virtuais, fake&nbsp;news e a exclusão digital afetam a vida e a saúde das
+            pessoas idosas no Brasil — e o que podemos fazer sobre isso.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a href="#video"
+               class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] hard-shadow"
+               style="background:var(--yellow);color:var(--ink);">
+              Assistir ao Vídeo <i data-lucide="play" style="width:16px;height:16px"></i>
+            </a>
+            <a href="#problema"
+               class="inline-flex items-center gap-2 px-5 py-3 font-archivo font-bold text-[14px] border-2"
+               style="background:transparent;color:var(--ink);border-color:rgba(1,27,47,0.35);">
+              Ver o Problema
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 border-t-2 border-b-2 py-5"
+         style="border-color:rgba(1,27,47,0.12);">
+      <div>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">edição</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">2026</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">formato</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">Site + Vídeo Informativo</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">duração</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">6–20 minutos</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:rgba(1,27,47,0.4);">base</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">Revisão científica</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="py-3 border-y-2 overflow-hidden"
+     style="background:var(--yellow);color:var(--ink);border-color:rgba(0,0,0,0.15);">
+  <div class="ticker font-display text-[22px] tracking-wider">
+    <span class="px-6">★ FAKE NEWS</span>
+    <span class="px-6">★ GOLPE DO PIX</span>
+    <span class="px-6">★ EXCLUSÃO DIGITAL</span>
+    <span class="px-6">★ R$ 6,3 BI DESVIADOS</span>
+    <span class="px-6">★ 4 MILHÕES DE VÍTIMAS</span>
+    <span class="px-6">★ INSS</span>
+    <span class="px-6">★ WHATSAPP</span>
+    <span class="px-6">★ DEEPFAKE</span>
+    <span class="px-6">★ LETRAMENTO DIGITAL</span>
+    <!-- duplicado para loop contínuo -->
+    <span class="px-6">★ FAKE NEWS</span>
+    <span class="px-6">★ GOLPE DO PIX</span>
+    <span class="px-6">★ EXCLUSÃO DIGITAL</span>
+    <span class="px-6">★ R$ 6,3 BI DESVIADOS</span>
+    <span class="px-6">★ 4 MILHÕES DE VÍTIMAS</span>
+    <span class="px-6">★ INSS</span>
+    <span class="px-6">★ WHATSAPP</span>
+    <span class="px-6">★ DEEPFAKE</span>
+    <span class="px-6">★ LETRAMENTO DIGITAL</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     STATS BANNER
+══════════════════════════════════════════════════════ -->
+<section class="relative py-16 md:py-20 overflow-hidden" style="background:#EAE6DC;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
+      <div>
+        <p class="eyebrow" style="color:var(--yellow-deep);">Projeção IBGE · 2070</p>
+        <h2 class="font-display text-[clamp(40px,6.5vw,86px)] mt-2" style="color:var(--ink);">
+          o brasil <span style="color:var(--blue);">envelhece</span> rápido
+        </h2>
+      </div>
+      <p class="font-script text-[40px] md:text-[56px] leading-none" style="color:var(--ink);">
+        e a&nbsp;internet&nbsp;não&nbsp;espera.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="fade-in p-7 hard-shadow" style="background:#fff;">
+        <p class="eyebrow opacity-60" style="color:var(--ink-soft);">01</p>
+        <p class="font-display text-[clamp(72px,11vw,140px)] stat-num leading-none mt-2"
+           style="color:var(--blue);">38%</p>
+        <p class="font-archivo text-[14px] mt-3 leading-snug" style="color:var(--ink-soft);">
+          da população brasileira terá 60 anos ou mais — um salto de 33 para 75 milhões de idosos.
+        </p>
+      </div>
+      <div class="fade-in p-7 hard-shadow" style="background:var(--blue);color:#fff;">
+        <p class="eyebrow" style="color:var(--yellow);">02</p>
+        <p class="font-display text-[clamp(72px,11vw,140px)] stat-num leading-none mt-2">7×</p>
+        <p class="font-archivo text-[14px] mt-3 leading-snug opacity-90">
+          mais fake news compartilhadas por idosos (Guess et al., 2019).
+        </p>
+      </div>
+      <div class="fade-in p-7 hard-shadow" style="background:#fff;">
+        <p class="eyebrow opacity-60" style="color:var(--ink-soft);">03</p>
+        <p class="font-display text-[clamp(56px,8.5vw,112px)] stat-num leading-none mt-2"
+           style="color:var(--blue);">R$ 6,3<span class="text-[.5em]"> bi</span></p>
+        <p class="font-archivo text-[14px] mt-3 leading-snug" style="color:var(--ink-soft);">
+          desviados de aposentados e pensionistas (2019–2024).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     VÍDEO INFORMATIVO
+══════════════════════════════════════════════════════ -->
+<section id="video" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
+  <div class="max-w-5xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="text-center mb-10 fade-in">
+      <p class="eyebrow" style="color:var(--yellow-deep);">★ · Vídeo Informativo</p>
+      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+          style="color:var(--ink);">assista ao nosso</h2>
+      <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-1 leading-none"
+         style="color:var(--blue);">vídeo informativo</p>
+      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-5"
+         style="color:rgba(1,27,47,0.6);">
+        Em breve disponível aqui. 
+      </p>
+    </div>
+
+    <!-- ╔═══════════════════════════════════════════╗
+         ║   CAMPO DE VÍDEO — substitua pelo embed  ║
+         ╚═══════════════════════════════════════════╝
+         Para adicionar o vídeo, substitua TODO o bloco
+         "video-placeholder" abaixo por um iframe, por exemplo:
+
+         <iframe
+           src="https://www.youtube.com/embed/SEU_VIDEO_ID"
+           title="Entre Clicks e Enganos — Vídeo Informativo"
+           frameborder="0"
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+           allowfullscreen
+           style="width:100%;aspect-ratio:16/9;">
+         </iframe>
+    -->
+    <div class="fade-in video-block">
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">
+          <i data-lucide="play" style="width:32px;height:32px;color:var(--ink);margin-left:4px;"></i>
+        </div>
+        <p class="video-placeholder-label">Vídeo em breve</p>
+        <p class="font-archivo text-[12px] text-center max-w-xs"
+           style="color:rgba(255,255,255,.3);position:relative;z-index:1;">
+        </p>
+      </div>
+    </div>
+    <!-- fim do campo de vídeo -->
+
+    <p class="font-archivo text-[12px] text-center mt-4" style="color:rgba(1,27,47,0.4);">
+      Vídeo informativo · 6–20 minutos · Projeto acadêmico — 2026
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     O PROBLEMA
+══════════════════════════════════════════════════════ -->
+<section id="problema" class="relative py-20 md:py-24 overflow-hidden"
+         style="background:#EAE6DC;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="grid md:grid-cols-12 gap-8 items-start mb-14">
+      <div class="md:col-span-7 fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">01 · O Problema</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+            style="color:var(--ink);">
+          Excesso <span class="font-script normal-case"
+                        style="color:var(--yellow);font-family:'Caveat Brush',cursive;letter-spacing:0;">
+            &amp;</span> escassez:
+        </h2>
+        <p class="font-script text-[clamp(36px,5.5vw,72px)] -mt-2 leading-none"
+           style="color:var(--blue);">dois lados da mesma crise</p>
+      </div>
+      <div class="md:col-span-5 fade-in">
+        <p class="font-archivo text-[15px] md:text-[16px] leading-relaxed mt-2"
+           style="color:rgba(1,27,47,0.68);">
+          A vulnerabilidade digital dos idosos nasce de uma contradição: há informação demais e
+          suporte de menos. Esses dois fatores, juntos, criam um terreno fértil para golpes e
+          desinformação.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <article class="fade-in card-hover p-8 hard-shadow"
+               style="background:var(--yellow);border:2px solid rgba(0,0,0,0.12);">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="numtag text-[44px]" style="color:var(--blue);">01</span>
+          <span class="dotline flex-1" style="color:var(--ink);"></span>
+          <i data-lucide="alert-triangle" style="width:22px;height:22px;color:var(--blue);"></i>
+        </div>
+        <h3 class="font-display text-[34px] md:text-[42px] leading-none"
+            style="color:var(--ink);">Excesso<br>informacional</h3>
+        <p class="font-archivo text-[14px] leading-relaxed mt-4" style="color:var(--ink);">
+          A internet produz um volume avassalador de conteúdo — muito dele falso. Fake news se
+          propagam até <strong>70% mais rápido</strong> do que notícias verdadeiras (Vosoughi,
+          Roy &amp; Aral, 2018). Idosos são especialmente vulneráveis à "ilusão da verdade":
+          quanto mais veem uma informação, mais tendem a acreditá-la.
+        </p>
+        <p class="eyebrow mt-5" style="color:var(--blue);">Desinformação · Fake News · Manipulação</p>
+      </article>
+
+      <article class="fade-in card-hover p-8 hard-shadow-yellow"
+               style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.12);">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="numtag text-[44px]" style="color:var(--yellow);">02</span>
+          <span class="dotline flex-1" style="color:rgba(255,255,255,.35);"></span>
+          <i data-lucide="users" style="width:22px;height:22px;color:var(--yellow);"></i>
+        </div>
+        <h3 class="font-display text-[34px] md:text-[42px] leading-none">Escassez<br>de suporte</h3>
+        <p class="font-archivo text-[14px] leading-relaxed mt-4 opacity-95">
+          Os idosos são considerados <strong>"migrantes digitais"</strong> — precisaram se adaptar
+          a tecnologias que nunca fizeram parte de sua formação. Faltam tutoriais acessíveis,
+          programas de letramento digital com alcance nacional e apoio de familiares e instituições.
+          Essa lacuna os torna alvos fáceis de estelionato e fraudes.
+        </p>
+        <p class="eyebrow mt-5" style="color:var(--yellow);">Exclusão Digital · Falta de Letramento</p>
+      </article>
+    </div>
+
+    <div class="mt-8 fade-in p-8 md:p-10 hard-shadow"
+         style="background:#fff;border:2px solid rgba(0,0,0,0.06);">
+      <div class="flex flex-col md:flex-row gap-6 items-start">
+        <span class="inline-flex w-14 h-14 rounded-full items-center justify-center flex-shrink-0"
+              style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
+          <i data-lucide="brain" style="width:24px;height:24px;color:var(--ink);"></i>
+        </span>
+        <div>
+          <p class="eyebrow mb-2" style="color:var(--blue);">Nota cognitiva</p>
+          <p class="font-archivo text-[15px] leading-relaxed" style="color:var(--ink-soft);">
+            O declínio da <strong style="color:var(--ink);">"memória de origem"</strong> — a
+            capacidade de lembrar onde ou como uma informação foi adquirida — comprometido pelo
+            envelhecimento, dificulta a avaliação da confiabilidade das fontes. Somado à tendência
+            natural de confiar em conteúdos familiares e intuitivos, isso cria uma vulnerabilidade
+            cognitiva explorada por golpistas e criadores de desinformação.
+          </p>
+          <p class="font-archivo text-[12px] italic mt-3"
+             style="color:var(--ink-soft);opacity:.7;">
+            Fonte: Brashier &amp; Schacter, 2020 — <em>Aging in an Era of Fake News</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     DADOS
+══════════════════════════════════════════════════════ -->
+<section id="dados" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
+      <div class="fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">02 · Dados</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+            style="color:var(--ink);">
+          números que<br><span style="color:var(--blue);">precisam</span> ser&nbsp;vistos
+        </h2>
+      </div>
+      <p class="font-archivo text-[14px] max-w-xs fade-in" style="color:rgba(1,27,47,0.62);">
+        Baseados em estudos científicos revisados por pares, publicados entre 2020 e 2025.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">01</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">100%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos idosos entrevistados afirmaram que a internet ajuda no dia a dia.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024 (n=61)</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">02</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">62,2%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">buscam familiares como principal fonte de ajuda para usar a internet.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow" style="color:var(--yellow);">03</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--yellow);">40,9%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug opacity-95">relatam adaptação, conhecimento e aprendizado como principal desafio.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-70">Borges, Moura &amp; Gomes, 2024</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">04</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">18%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">apontam a veracidade das informações como algo urgente a melhorar na internet.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">05</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">3,2%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos idosos com 80+ anos participaram — evidência da exclusão digital crescente com a idade.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">Borges, Moura &amp; Gomes, 2024</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">06</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">32,4%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos beneficiários do INSS já usaram ferramenta digital — os demais ficaram expostos à fraude.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">CGU / Instituto Longevidade MAG, 2025</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow" style="color:var(--yellow);">07</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--yellow);">4M+</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug opacity-95">aposentados e pensionistas afetados pela fraude do INSS (2019–2024).</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-70">PF &amp; CGU, 2025</p>
+      </div>
+      <div class="fade-in p-6 hard-shadow" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow opacity-50" style="color:var(--ink-soft);">08</p>
+        <p class="font-display text-[72px] leading-none mt-2 stat-num" style="color:var(--blue);">70%</p>
+        <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">dos anúncios fraudulentos nas redes Meta usaram Inteligência Artificial para enganar.</p>
+        <p class="font-archivo text-[10px] mt-3 opacity-60" style="color:var(--ink-soft);">NetLab/UFRJ, 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     PESQUISA
+══════════════════════════════════════════════════════ -->
+<section id="pesquisa" class="relative py-20 md:py-24 overflow-hidden" style="background:#EAE6DC;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="grid md:grid-cols-12 gap-8 items-end mb-12">
+      <div class="md:col-span-8 fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">03 · Pesquisa</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+            style="color:var(--ink);">
+          pesquisas que<br><span style="color:var(--blue);">fundamentam</span> este projeto
+        </h2>
+      </div>
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(1,27,47,0.6);">
+        Este projeto se baseia em artigos científicos revisados por pares, publicados em revistas
+        nacionais e internacionais entre 2020 e 2025.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">01</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2024</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Tecnologia digital da informação e comunicação na promoção do envelhecimento saudável, participativo e cidadão</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Borges, Moura &amp; Gomes</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Estudos Interdisciplinares sobre o Envelhecimento · DOI: 10.22456/2316-2171.135837</p>
+      </article>
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">02</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2025</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Fake News e Golpes Virtuais em Idosos: Desafios e Intervenções Educativas</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Azevedo, Vidigal &amp; Sales</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista ARACÊ · v.7, n.8</p>
+      </article>
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">03</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Envelhecimento e Covid-19: Notas sobre fake news e inovação social</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Savenhago, Vargas, Ogata &amp; Pedro</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista Kairós-Gerontologia · v.23, n. especial 28</p>
+      </article>
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">04</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Desinformação na Terceira Idade: como o público idoso se relaciona com as fake news dentro das redes sociais</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Luce &amp; Estabel</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Pesquisa Brasileira em Ciência da Informação e Biblioteconomia · v.15, n.2</p>
+      </article>
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">05</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2025</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Vulnerabilidade Digital e a Terceira Idade</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Teixeira, Quézia de Souza</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Revista REASE · v.11, n.9 · ISSN: 2675-3375</p>
+      </article>
+      <article class="fade-in p-7 hard-shadow-blue" style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <div class="flex items-start justify-between gap-4">
+          <span class="numtag text-[38px]" style="color:var(--blue);">06</span>
+          <span class="eyebrow" style="color:var(--ink-soft);">2020</span>
+        </div>
+        <h4 class="font-archivo font-bold text-[16px] leading-snug mt-3" style="color:var(--ink);">Aging in an Era of Fake News</h4>
+        <p class="font-archivo text-[13px] mt-3" style="color:var(--blue);font-weight:600;">Brashier &amp; Schacter</p>
+        <p class="font-archivo text-[11px] mt-1" style="color:var(--ink-soft);opacity:.7;">Current Directions in Psychological Science · v.29, n.3</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     QUIZ
+══════════════════════════════════════════════════════ -->
+<section id="quiz" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
+  <div class="max-w-4xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="text-center mb-10 fade-in">
+      <p class="eyebrow" style="color:var(--yellow-deep);">04 · Quiz</p>
+      <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+          style="color:var(--ink);">você saberia<br>identificar</h2>
+      <p class="font-script text-[clamp(40px,6vw,80px)] leading-none -mt-1"
+         style="color:var(--blue);">um golpe digital?</p>
+      <p class="font-archivo text-[14px] max-w-xl mx-auto mt-6" style="color:rgba(1,27,47,0.62);">
+        Teste seus conhecimentos sobre situações reais de golpes e fake news que afetam pessoas
+        idosas. Cada pergunta é baseada em casos documentados pela pesquisa científica.
+      </p>
+    </div>
+
+    <div id="quiz-container" class="p-7 md:p-10 hard-shadow"
+         style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+      <div id="quiz-progress" class="flex items-center justify-between mb-6">
+        <span id="quiz-progress-text" class="eyebrow" style="color:var(--blue);">Pergunta 1 de 6</span>
+        <span id="quiz-score" class="eyebrow" style="color:var(--ink-soft);">Pontos: 0</span>
+      </div>
+      <div class="w-full h-1.5 mb-6" style="background:rgba(20,20,20,.08);">
+        <div id="quiz-bar" class="h-full transition-all"
+             style="width:16.66%;background:var(--yellow);"></div>
+      </div>
+      <div id="quiz-question-area"></div>
+      <div id="quiz-result" class="hidden text-center py-6">
+        <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center"
+             style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
+          <i data-lucide="award" style="width:36px;height:36px;color:var(--ink)"></i>
+        </div>
+        <p class="eyebrow" style="color:var(--blue);">Resultado</p>
+        <h3 class="font-display text-[56px] md:text-[72px] leading-none mt-1"
+            style="color:var(--ink);">parabéns!</h3>
+        <p id="quiz-final-score" class="font-display text-[80px] md:text-[110px] leading-none mt-2"
+           style="color:var(--blue);"></p>
+        <p id="quiz-result-msg" class="font-archivo text-[15px] mt-3 max-w-md mx-auto"
+           style="color:var(--ink-soft);">
+          Você demonstrou boa consciência sobre segurança digital. Compartilhe esse conhecimento
+          com quem você ama!
+        </p>
+        <button id="quiz-restart-btn"
+                class="mt-6 inline-flex items-center gap-2 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow"
+                style="background:var(--yellow);color:var(--ink);">
+          Fazer novamente <i data-lucide="refresh-cw" style="width:16px;height:16px"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SOBRE
+══════════════════════════════════════════════════════ -->
+<section id="sobre" class="relative py-20 md:py-24 overflow-hidden" style="background:#EAE6DC;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="grid md:grid-cols-12 gap-10 items-start">
+      <div class="md:col-span-7 fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">05 · Sobre</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+            style="color:var(--ink);">uma proposta de</h2>
+        <p class="font-script text-[clamp(40px,6vw,84px)] -mt-1 leading-none"
+           style="color:var(--blue);">conscientização</p>
+
+        <div class="mt-7 space-y-4 font-archivo text-[15px] leading-relaxed"
+             style="color:rgba(1,27,47,0.72);">
+          <p>
+            Este projeto acadêmico propõe a criação de um
+            <strong style="color:var(--ink);">vídeo informativo (6–10 minutos)</strong>
+            acompanhado deste website interativo, abordando a vulnerabilidade digital das
+            pessoas idosas no Brasil.
+          </p>
+          <p>
+            Com base em revisão sistemática da literatura científica, o projeto explora os
+            fatores que tornam os idosos mais susceptíveis a golpes e fake news — cognitivos,
+            emocionais e sociais — e apresenta caminhos de proteção.
+          </p>
+          <p>
+            A proposta reforça que estratégias educativas humanizadas e adaptadas à realidade
+            dos idosos são essenciais para promover a inclusão digital, a autonomia e um
+            envelhecimento ativo e saudável.
+          </p>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 fade-in">
+        <div class="relative p-7 hard-shadow"
+             style="background:var(--yellow);border:2px solid rgba(0,0,0,0.1);aspect-ratio:4/5;">
+          <p class="eyebrow flex items-center" style="color:var(--ink);">
+            Entre Clicks <span class="rule" style="background:var(--ink);"></span>
+          </p>
+          <h3 class="font-display text-[clamp(48px,6vw,84px)] leading-[.88] mt-3"
+              style="color:var(--blue);">4 dicas<br>de como</h3>
+          <p class="font-script text-[clamp(28px,3.4vw,46px)] leading-none -mt-1"
+             style="color:var(--ink);">evitar golpes digitais</p>
+          <p class="eyebrow mt-5 max-w-[180px]" style="color:var(--ink);opacity:0.6;">
+            para usar a internet com mais segurança
+          </p>
+          <div class="absolute bottom-0 left-0 right-0 mx-7 h-[40%] flex items-end justify-center">
+            <div class="halftone w-[55%] h-full rounded-t-[28px] flex items-end justify-center"
+                 style="border:2px solid var(--ink);border-bottom:0;">
+              <p class="font-archivo text-[10px] uppercase tracking-widest text-white/80 mb-3">
+                [ placeholder · foto ]
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14">
+      <p class="eyebrow mb-5" style="color:var(--yellow-deep);">Pilares do projeto</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="fade-in p-7 hard-shadow card-hover"
+             style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+          <span class="numtag text-[40px]" style="color:var(--blue);">01</span>
+          <div class="mt-3 mb-3"><i data-lucide="eye" style="width:24px;height:24px;color:var(--blue)"></i></div>
+          <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Conscientização</h4>
+          <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">Informar sobre os tipos de golpe e como funcionam psicologicamente.</p>
+        </div>
+        <div class="fade-in p-7 hard-shadow card-hover"
+             style="background:var(--yellow);border:2px solid rgba(0,0,0,0.08);">
+          <span class="numtag text-[40px]" style="color:var(--blue);">02</span>
+          <div class="mt-3 mb-3"><i data-lucide="monitor" style="width:24px;height:24px;color:var(--blue)"></i></div>
+          <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Inclusão digital</h4>
+          <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink);">Promover o letramento digital com metodologia acessível para a terceira idade.</p>
+        </div>
+        <div class="fade-in p-7 hard-shadow card-hover"
+             style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+          <span class="numtag text-[40px]" style="color:var(--blue);">03</span>
+          <div class="mt-3 mb-3"><i data-lucide="heart" style="width:24px;height:24px;color:var(--blue)"></i></div>
+          <h4 class="font-display text-[28px] leading-none" style="color:var(--ink);">Apoio familiar</h4>
+          <p class="font-archivo text-[13px] mt-3 leading-snug" style="color:var(--ink-soft);">Incentivar o suporte emocional e técnico de familiares no processo de inclusão.</p>
+        </div>
+        <div class="fade-in p-7 hard-shadow card-hover"
+             style="background:var(--blue);border:2px solid rgba(0,0,0,0.05);color:#fff;">
+          <span class="numtag text-[40px]" style="color:var(--yellow);">04</span>
+          <div class="mt-3 mb-3"><i data-lucide="shield" style="width:24px;height:24px;color:var(--yellow)"></i></div>
+          <h4 class="font-display text-[28px] leading-none">Proteção</h4>
+          <p class="font-archivo text-[13px] mt-3 leading-snug opacity-90">Fortalecer a autonomia digital e a segurança online das pessoas idosas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     CRÉDITOS
+══════════════════════════════════════════════════════ -->
+<section id="creditos" class="relative py-20 md:py-24 overflow-hidden" style="background:#F4F1EA;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="grid md:grid-cols-12 gap-8 items-end mb-14">
+      <div class="md:col-span-8 fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">06 · Créditos</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none"
+            style="color:var(--ink);">
+          quem está por <span style="color:var(--blue);">trás</span>
+        </h2>
+        <p class="font-script text-[clamp(36px,5vw,72px)] -mt-2 leading-none"
+           style="color:var(--ink);">deste projeto</p>
+      </div>
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(1,27,47,0.6);">
+        Conheça os criadores e parceiros que tornaram este projeto de conscientização possível.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-6">
+      <div class="md:col-span-7 fade-in p-8 hard-shadow"
+           style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+        <p class="eyebrow" style="color:var(--blue);">Equipe de desenvolvimento</p>
+        <h3 class="font-display text-[36px] md:text-[44px] leading-none mt-2"
+            style="color:var(--ink);">sete mãos<br>uma missão</h3>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-3 font-archivo text-[14px]"
+            style="color:var(--ink-soft);">
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">01</span>
+            <span><strong style="color:var(--ink);">Alberto da Silva</strong><br>
+              <span class="opacity-70 text-[12px]">Roteiro, produção e gravação</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">02</span>
+            <span><strong style="color:var(--ink);">Luana Ribeiro</strong><br>
+              <span class="opacity-70 text-[12px]">Pesquisa e gravação</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">04</span>
+            <span><strong style="color:var(--ink);">Luiza de Carvalho</strong><br>
+              <span class="opacity-70 text-[12px]">Pesquisa e gravação</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">05</span>
+            <span><strong style="color:var(--ink);">Maria Carolina Cirino</strong><br>
+              <span class="opacity-70 text-[12px]">Pesquisa e gravação</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">06</span>
+            <span><strong style="color:var(--ink);">Sabrina Souza</strong><br>
+              <span class="opacity-70 text-[12px]">Pesquisa, produção e gravação</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">07</span>
+            <span><strong style="color:var(--ink);">Santiago Guerrero</strong><br>
+              <span class="opacity-70 text-[12px]">Pesquisa, direção e edição</span></span>
+          </li>
+          <li class="flex gap-3 items-baseline border-t pt-3" style="border-color:rgba(20,20,20,.1);">
+            <span class="numtag text-[18px]" style="color:var(--blue);">08</span>
+            <span><strong style="color:var(--ink);">Maria Luiza Marques</strong><br>
+              <span class="opacity-70 text-[12px]">Site, roteiro, carrossel e gravação</span></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-5 flex flex-col gap-6">
+        <div class="fade-in p-8 hard-shadow"
+             style="background:var(--blue);color:#fff;border:2px solid rgba(0,0,0,0.05);">
+          <p class="eyebrow" style="color:var(--yellow);">Agradecimentos</p>
+          <h3 class="font-display text-[34px] leading-none mt-2">orientação<br>&amp; apoio</h3>
+          <p class="font-archivo text-[14px] mt-4 leading-relaxed opacity-95">
+            Este projeto foi desenvolvido com orientação da
+            <strong>professora Gabriela Hermes</strong>. Agradecemos aos pesquisadores
+            especializados em envelhecimento digital, às comunidades de idosos que contribuíram
+            com seus relatos e a todos cujos trabalhos científicos fundamentaram este estudo.
+          </p>
+        </div>
+        <div class="fade-in p-8 hard-shadow"
+             style="background:#fff;border:2px solid rgba(0,0,0,0.05);">
+          <p class="eyebrow" style="color:var(--blue);">Sobre este projeto</p>
+          <p class="font-archivo text-[14px] mt-3 leading-relaxed" style="color:var(--ink-soft);">
+            Desenvolvido como projeto acadêmico interdisciplinar, este site acompanha um
+            vídeo informativo educativo (6–20 minutos) que explora a vulnerabilidade digital dos
+            idosos no Brasil. O objetivo é
+            <strong style="color:var(--ink);">conscientizar, informar e empoderar</strong>
+            pessoas de todas as idades para proteger seus familiares e comunidades.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     MÍDIA 2 — CARROSSEL DO INSTAGRAM
+══════════════════════════════════════════════════════ -->
+<section id="midia2" class="relative py-20 md:py-24 overflow-hidden" style="background:#e8eaf2;">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="grid md:grid-cols-12 gap-8 items-end mb-14">
+      <div class="md:col-span-8 fade-in">
+        <p class="eyebrow" style="color:var(--yellow-deep);">l</p>
+        <h2 class="font-display text-[clamp(48px,7vw,108px)] mt-3 leading-none" style="color:var(--ink);">
+          carrossel do <span style="color:var(--blue);">instagram</span>
+        </h2>
+      </div>
+      <p class="md:col-span-4 font-archivo text-[14px] fade-in" style="color:rgba(1,27,47,0.6);">
+        Conteúdo acessível e compartilhável para conscientização digital nas redes sociais.
+      </p>
+    </div>
+
+    <!-- SLIDE CARD -->
+    <div class="fade-in ig-slide-card" style="
+      background:#f5f6fa;
+      border-radius:18px;
+      padding:32px 24px 36px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:40px;
+      position:relative;
+      align-items:start;
+      border:2px solid rgba(0,0,0,0.06);
+      box-shadow:8px 8px 0 0 var(--yellow);
+    ">
+
+      <!-- LEFT COLUMN -->
+      <div class="ig-left-col" style="display:flex;flex-direction:column;padding-right:10px;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:#e8a020;text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+          <span style="width:7px;height:7px;background:#e8a020;border-radius:50%;display:inline-block;"></span>
+          <span style="width:7px;height:7px;background:#e8a020;border-radius:50%;display:inline-block;"></span>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:54px;line-height:1.08;color:#1a1aac;margin-bottom:44px;letter-spacing:-0.5px;">Carrossel do<br>Instagram</div>
+
+        <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;color:#e8a020;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">Propósito</div>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:36px;padding:0;">
+          <li style="font-family:'Open Sans',sans-serif;font-size:17px;color:#1a1a2e;padding-left:22px;position:relative;line-height:1.45;">
+            <span style="position:absolute;left:0;top:0;color:#1a1a2e;font-size:20px;line-height:1.3;">•</span>
+            Compartilhar informações<br>rápidas e acessíveis
+          </li>
+          <li style="font-family:'Open Sans',sans-serif;font-size:17px;color:#1a1a2e;padding-left:22px;position:relative;line-height:1.45;">
+            <span style="position:absolute;left:0;top:0;color:#1a1a2e;font-size:20px;line-height:1.3;">•</span>
+            Alertar sobre golpes e fake news
+          </li>
+          <li style="font-family:'Open Sans',sans-serif;font-size:17px;color:#1a1a2e;padding-left:22px;position:relative;line-height:1.45;">
+            <span style="position:absolute;left:0;top:0;color:#1a1a2e;font-size:20px;line-height:1.3;">•</span>
+            Promover conscientização digital
+          </li>
+        </ul>
+
+        <!-- Small phone -->
+        <div style="width:min(155px,80vw);margin-top:10px;">
+          <div style="background:#111;border-radius:30px;padding:11px 8px 14px;box-shadow:0 12px 40px rgba(0,0,0,0.35);position:relative;width:min(155px,80vw);">
+            <div style="content:'';display:block;width:55px;height:18px;background:#111;border-radius:0 0 12px 12px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;"></div>
+            <div style="background:#fff;border-radius:21px;overflow:hidden;">
+              <!-- IG topbar -->
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px 4px;border-bottom:0.5px solid #efefef;">
+                <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:7.5px;color:#000;">entre_clicks</span>
+                <span style="font-size:7.5px;color:#555;">⊞ ≡</span>
+              </div>
+              <!-- IG profile -->
+              <div style="display:flex;align-items:center;padding:7px 9px 4px;gap:6px;">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1a1aac 40%,#3355cc);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:10px;flex-shrink:0;">K</div>
+                <div style="display:flex;gap:7px;">
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:7.5px;color:#000;">822</strong><span style="font-size:6px;color:#555;">Posts</span></div>
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:7.5px;color:#000;">6820</strong><span style="font-size:6px;color:#555;">Followers</span></div>
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:7.5px;color:#000;">22</strong><span style="font-size:6px;color:#555;">Following</span></div>
+                </div>
+              </div>
+              <div style="padding:0 9px 5px;font-size:6.5px;color:#333;line-height:1.5;">
+                <div style="font-weight:700;font-size:7px;color:#000;">Entre Clicks</div>
+                <div style="color:#555;">Business</div>
+                <div>This is my biography</div>
+                <div style="color:#1a1aac;font-weight:600;">www.entreclicks.com</div>
+              </div>
+              <div style="margin:0 9px 6px;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:6.5px;font-weight:600;padding:3px 0;color:#333;">Edit Profile</div>
+              <div style="display:flex;gap:0;margin:0 9px 6px;">
+                <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:6px;font-weight:600;padding:2px 0;color:#333;margin-right:3px;">Promotions</div>
+                <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:6px;font-weight:600;padding:2px 0;color:#333;margin-right:3px;">Insights</div>
+                <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:6px;font-weight:600;padding:2px 0;color:#333;">Email</div>
+              </div>
+              <div style="display:flex;gap:10px;padding:4px 9px 8px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:23px;height:23px;border-radius:50%;background:#1c1c1c;"></div><span style="font-size:5px;color:#555;">Highlight</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:23px;height:23px;border-radius:50%;background:#1a1aac;"></div><span style="font-size:5px;color:#555;">Highlight</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:23px;height:23px;border-radius:50%;background:#e0e0e0;border:1.5px solid #ccc;"></div><span style="font-size:5px;color:#555;">Highlight</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:23px;height:23px;border-radius:50%;background:#e8a020;"></div><span style="font-size:5px;color:#555;">Highlight</span></div>
+              </div>
+              <div style="display:flex;border-top:0.5px solid #ddd;border-bottom:0.5px solid #ddd;">
+                <div style="flex:1;text-align:center;padding:4px 0;font-size:8px;color:#000;border-bottom:1.5px solid #000;">⊞</div>
+                <div style="flex:1;text-align:center;padding:4px 0;font-size:8px;color:#aaa;">🏷</div>
+                <div style="flex:1;text-align:center;padding:4px 0;font-size:8px;color:#aaa;">👤</div>
+              </div>
+              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:#ccc;">
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img1.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img3.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img4.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img2.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img6.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+                <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img5.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- /left -->
+
+      <!-- CENTER COLUMN -->
+      <div class="ig-center-col" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0 20px;gap:14px;">
+        <!-- Big phone -->
+        <div style="background:#111;border-radius:48px;padding:18px 12px 22px;box-shadow:0 24px 70px rgba(0,0,0,0.40);position:relative;width:min(270px,90vw);margin:0 auto;">
+          <div style="width:88px;height:26px;background:#111;border-radius:0 0 18px 18px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:5;"></div>
+          <div style="position:absolute;top:6px;left:22px;font-size:8px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;z-index:10;"></div>
+          <div style="background:#fff;border-radius:34px;overflow:hidden;">
+            <!-- IG topbar -->
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:7px 9px 4px;border-bottom:0.5px solid #efefef;">
+              <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;color:#000;">entre_clicks</span>
+              <span style="display:flex;gap:7px;font-size:9px;color:#555;">⊞ ≡</span>
+            </div>
+            <!-- IG profile -->
+            <div style="display:flex;align-items:center;padding:7px 9px 4px;gap:8px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a1aac 40%,#3355cc);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;flex-shrink:0;">K</div>
+              <div style="display:flex;gap:10px;">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:9.5px;color:#000;">822</strong><span style="font-size:7px;color:#555;">Posts</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:9.5px;color:#000;">6820</strong><span style="font-size:7px;color:#555;">Followers</span></div>
+                <div style="display:flex;flex-direction:column;align-items:center;gap:1px;"><strong style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:9.5px;color:#000;">22</strong><span style="font-size:7px;color:#555;">Following</span></div>
+              </div>
+            </div>
+            <div style="padding:0 9px 5px;font-size:7.5px;color:#333;line-height:1.5;">
+              <div style="font-weight:700;font-size:8px;color:#000;">Entre Clicks</div>
+              <div style="color:#555;">Business</div>
+              <div>This is my biography</div>
+              <div style="color:#1a1aac;font-weight:600;">www.entreclicks.com</div>
+            </div>
+            <div style="margin:0 9px 6px;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:7.5px;font-weight:600;padding:3px 0;color:#333;">Edit Profile</div>
+            <div style="display:flex;gap:0;margin:0 9px 6px;">
+              <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:7px;font-weight:600;padding:3px 0;color:#333;margin-right:3px;">Promotions</div>
+              <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:7px;font-weight:600;padding:3px 0;color:#333;margin-right:3px;">Insights</div>
+              <div style="flex:1;border:0.8px solid #ccc;border-radius:7px;text-align:center;font-size:7px;font-weight:600;padding:3px 0;color:#333;">Email</div>
+            </div>
+            <div style="display:flex;gap:10px;padding:4px 9px 8px;">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:32px;height:32px;border-radius:50%;background:#1c1c1c;"></div><span style="font-size:6px;color:#555;">Highlight</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:32px;height:32px;border-radius:50%;background:#1a1aac;"></div><span style="font-size:6px;color:#555;">Highlight</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:32px;height:32px;border-radius:50%;background:#e0e0e0;border:1.5px solid #ccc;"></div><span style="font-size:6px;color:#555;">Highlight</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:32px;height:32px;border-radius:50%;background:#e8a020;"></div><span style="font-size:6px;color:#555;">Highlight</span></div>
+            </div>
+            <div style="display:flex;border-top:0.5px solid #ddd;border-bottom:0.5px solid #ddd;">
+              <div style="flex:1;text-align:center;padding:5px 0;font-size:9px;color:#000;border-bottom:1.5px solid #000;">⊞</div>
+              <div style="flex:1;text-align:center;padding:5px 0;font-size:9px;color:#aaa;">🏷</div>
+              <div style="flex:1;text-align:center;padding:5px 0;font-size:9px;color:#aaa;">👤</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:#ccc;">
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img1.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img3.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img4.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img2.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img6.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+              <div style="aspect-ratio:1;overflow:hidden;"><img src="imgs/img5.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#1a1aac;text-align:center;line-height:1.4;letter-spacing:0.5px;">Entre Clicks<br>&amp; Enganos</div>
+      </div><!-- /center -->
+
+      <!-- RIGHT COLUMN -->
+      <div class="ig-right-col" style="display:flex;flex-direction:column;padding-left:30px;gap:0;">
+
+        <div style="padding-bottom:22px;margin-bottom:20px;border-bottom:2.5px dashed #b8bcd4;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:2px;color:#1a1aac;margin-bottom:12px;">Conteúdo</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;padding:0;">
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Dicas de segurança digital</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Como identificar fake news</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Cuidados com golpes online</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Importância da verificação de informações</li>
+          </ul>
+        </div>
+
+        <div style="padding-bottom:22px;margin-bottom:20px;border-bottom:2.5px dashed #b8bcd4;">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:2px;color:#e8a020;margin-bottom:12px;">Características</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;padding:0;">
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Linguagem simples</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Design acessível</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Conteúdo objetivo</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Fácil compartilhamento</li>
+          </ul>
+        </div>
+
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:2px;color:#1a1aac;margin-bottom:12px;">Espalhabilidade</div>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:7px;padding:0;">
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Compartilhamento rápido</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Curtidas, comentários e repostagens</li>
+            <li style="font-family:'Open Sans',sans-serif;font-size:14.5px;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.45;"><span style="position:absolute;left:0;top:-1px;font-size:16px;color:#1a1a2e;">•</span>Ampliação do alcance do projeto</li>
+          </ul>
+        </div>
+
+      </div><!-- /right -->
+
+    </div><!-- /slide card -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════ -->
+<footer class="relative py-12 border-t-2 overflow-hidden"
+        style="background:#F4F1EA;color:var(--ink);border-color:rgba(1,27,47,.18);">
+  <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
+
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="w-10 h-10 rounded-full flex items-center justify-center"
+                style="background:var(--yellow);">
+            <i data-lucide="megaphone" style="width:18px;height:18px;color:var(--ink);"></i>
+          </span>
+          <span class="font-display text-[28px] leading-none" style="color:var(--ink);">
+            Entre Clicks &amp; Enganos
+          </span>
+        </div>
+        <p class="font-script text-[40px] leading-none mt-3" style="color:var(--blue);">
+          obrigado por chegar até aqui.
+        </p>
+
+        <!-- ── Instagram ── -->
+        <div class="mt-5 flex items-center gap-3">
+          <!--
+            INSTAGRAM: substitua o href abaixo pelo link do perfil do grupo,
+            por exemplo: https://www.instagram.com/entreclickseenganos
+          -->
+          <a href="https://www.instagram.com/SEU_PERFIL_AQUI"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="instagram-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @SEU_PERFIL_AQUI
+          </a>
+        </div>
+      </div>
+
+      <div class="md:text-right">
+        <p class="font-archivo text-[13px]" style="color:rgba(1,27,47,0.75);">
+          Projeto acadêmico · Vulnerabilidade Digital e a Terceira Idade
+        </p>
+        <p class="font-archivo text-[11px] mt-1" style="color:rgba(1,27,47,0.5);">
+          Baseado em pesquisas científicas publicadas entre 2019 e 2025
+        </p>
+        <p class="font-archivo text-[11px]" style="color:rgba(1,27,47,0.5);">
+          Vídeo informativo: até 20 minutos · Site v.01 · 2026
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
