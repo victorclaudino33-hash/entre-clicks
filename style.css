@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════════
+   Entre Clicks & Enganos — style.css
+   ═══════════════════════════════════════════════════ */
+
+:root {
+  --yellow:       #FFB915;
+  --yellow-deep:  #E8A800;
+  --yellow-soft:  #FFD358;
+  --yellow-cream: #FFD358;
+  --blue:         #003F66;
+  --blue-deep:    #002A45;
+  --blue-soft:    rgba(0,63,102,0.15);
+  --ink:          #011B2F;
+  --ink-soft:     #1E3A4A;
+  --paper:        #EAE6DC;
+  --cream:        #F4F1EA;
+  --white:        #FFFFFF;
+}
+
+/* ── Reset & Base ─────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #F4F1EA;
+  color: var(--ink);
+}
+
+/* ── Typography Utilities ─────────────────────────── */
+.font-display {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -.005em;
+  line-height: .92;
+  text-transform: uppercase;
+}
+
+.font-script {
+  font-family: 'Caveat Brush', cursive;
+  font-weight: 400;
+}
+
+.font-archivo { font-family: 'Archivo', sans-serif; }
+
+.eyebrow {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.rule {
+  display: inline-block;
+  width: 64px;
+  height: 2px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-left: 14px;
+}
+
+/* ── Halftone Textures ────────────────────────────── */
+.halftone {
+  background-color: #1a1a1a;
+  background-image:
+    radial-gradient(rgba(255,255,255,.95) 1px, transparent 1.4px),
+    radial-gradient(rgba(255,255,255,.55) 1px, transparent 1.4px);
+  background-size: 6px 6px, 6px 6px;
+  background-position: 0 0, 3px 3px;
+  filter: contrast(1.05);
+}
+
+.halftone-yellow {
+  background-color: var(--yellow);
+  background-image: radial-gradient(rgba(20,20,20,.85) 1.1px, transparent 1.6px);
+  background-size: 5px 5px;
+}
+
+/* ── Nav ──────────────────────────────────────────── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  height: 2px; width: 0;
+  background: var(--yellow);
+  transition: width .25s;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ── Scroll Animations ────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Quiz ─────────────────────────────────────────── */
+.quiz-option {
+  transition: all .18s;
+  cursor: pointer;
+}
+.quiz-option:hover {
+  border-color: var(--yellow);
+  background: rgba(255,185,21,0.08);
+}
+.quiz-option.selected {
+  border-color: var(--yellow);
+  background: rgba(255,185,21,0.08);
+}
+.quiz-option.correct {
+  border-color: #0f7a3a;
+  background: #d8f2e3;
+  color: #0f3a22;
+}
+.quiz-option.incorrect {
+  border-color: #b3261e;
+  background: #fbdcd9;
+  color: #62120d;
+}
+
+/* ── Ticker ───────────────────────────────────────── */
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 38s linear infinite;
+}
+.ticker > * { flex: 0 0 auto; }
+
+/* ── Utilities ────────────────────────────────────── */
+.dotline {
+  background-image: radial-gradient(currentColor 1.2px, transparent 1.6px);
+  background-size: 10px 2px;
+  background-repeat: repeat-x;
+  background-position: left center;
+  height: 2px;
+  width: 100%;
+}
+.numtag    { font-family: 'Anton', sans-serif; line-height: 1; }
+.card-hover { transition: transform .25s, box-shadow .25s, background .25s; }
+.card-hover:hover { transform: translateY(-3px); }
+.stat-num  { font-variant-numeric: tabular-nums; }
+
+.hard-shadow        { box-shadow: 6px 6px 0 0 var(--yellow); }
+.hard-shadow-blue   { box-shadow: 6px 6px 0 0 var(--yellow-soft); }
+.hard-shadow-yellow { box-shadow: 6px 6px 0 0 var(--yellow-deep); }
+
+.skew-tag {
+  display: inline-block;
+  transform: rotate(-2deg);
+  background: var(--yellow);
+  color: var(--ink);
+  padding: .35rem .8rem;
+}
+
+/* ── Instagram Slide Card Responsive ─────────────── */
+@media (min-width: 1024px) {
+  .ig-slide-card {
+    grid-template-columns: 380px 1fr 300px !important;
+    padding: 52px 56px 50px 56px !important;
+    gap: 0 !important;
+  }
+}
+
+/* ── General responsive helpers ──────────────────── */
+@media (max-width: 768px) {
+  .ig-left-col  { padding-right: 0 !important; }
+  .ig-right-col { padding-left:  0 !important; }
+  .ig-center-col { padding: 0 !important; }
+}
+
+::selection { background: var(--yellow); color: var(--ink); }
+
+/* ── Video Embed Block ────────────────────────────── */
+.video-block {
+  width: 100%;
+  background: var(--blue-deep);
+  border: 2px solid rgba(0,0,0,0.12);
+  box-shadow: 6px 6px 0 0 var(--yellow);
+  overflow: hidden;
+}
+
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--blue-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1.5px);
+  background-size: 8px 8px;
+}
+
+.video-placeholder-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255,255,255,0.15);
+  position: relative;
+  z-index: 1;
+  transition: transform .2s;
+}
+
+.video-placeholder-icon:hover { transform: scale(1.08); }
+
+.video-placeholder-label {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Instagram Link ───────────────────────────────── */
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+.instagram-link:hover {
+  border-color: var(--yellow);
+  color: var(--blue);
+}
