@@ -252,3 +252,61 @@ body {
   border-color: var(--yellow);
   color: var(--blue);
 }
+/* ═══════════════════════════════════════════════════
+   QUIZ v3 — Design upgrade
+   ═══════════════════════════════════════════════════ */
+
+/* Override container: dark panel */
+#quiz-container {
+  background: var(--blue-deep) !important;
+  border-color: rgba(0,63,102,.5) !important;
+  box-shadow: 8px 8px 0 0 var(--yellow) !important;
+}
+
+/* Progress bar: thinner, bright */
+#quiz-bar {
+  background: var(--yellow) !important;
+  height: 3px !important;
+  transition: width .55s cubic-bezier(.4,0,.2,1) !important;
+}
+
+#quiz-bar + * ,
+#quiz-bar {
+  border-radius: 0 !important;
+}
+
+/* Progress text colors on dark bg */
+#quiz-progress-text,
+#quiz-score {
+  color: rgba(255,255,255,.55) !important;
+}
+
+/* Step dots strip */
+#quiz-steps {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  margin-bottom: 4px;
+}
+
+/* Streak badge pop animation */
+@keyframes streakPop {
+  from { transform: scale(.5) rotate(-8deg); opacity: 0; }
+  to   { transform: scale(1)  rotate(0deg);  opacity: 1; }
+}
+
+/* Option buttons hover (handled in JS, but cursor still here) */
+.qz-opt { cursor: pointer; }
+
+/* Next button hover */
+#next-btn:not([disabled]):hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 4px 6px 0 rgba(255,185,21,.35) !important;
+}
+
+/* Result: keep it on dark bg too */
+#quiz-result {
+  background: transparent;
+}
