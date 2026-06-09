@@ -455,3 +455,4 @@ function restartQuiz() {
 }
 
 renderQuestion();
+

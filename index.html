@@ -789,13 +789,6 @@
 ══════════════════════════════════════════════════════ -->
 <section id="midia2" style="background:#011B2F;padding:92px 0 130px;position:relative;overflow:hidden;">
 
-  <!-- BG: halftone duplo amarelo -->
-  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;
-    background-image:
-      radial-gradient(rgba(255,185,21,0.12) 1.3px,transparent 1.9px),
-      radial-gradient(rgba(255,185,21,0.04) 0.8px,transparent 1.2px);
-    background-size:24px 24px,12px 12px;
-    background-position:0 0,6px 6px;"></div>
   <!-- BG: faixa diagonal decorativa esquerda -->
   <div style="position:absolute;top:-120px;left:-160px;width:520px;height:110%;z-index:0;pointer-events:none;
     background:linear-gradient(105deg,rgba(255,185,21,0.055) 0%,transparent 55%);
@@ -813,11 +806,8 @@
   <!-- Borda rasgada na base (volta ao paper) -->
   <svg style="position:absolute;bottom:-1px;left:0;width:100%;z-index:2;" height="52" viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,52 L0,28 C80,16 160,36 240,24 C320,12 400,32 480,22 C560,12 640,30 720,22 C800,14 880,34 960,24 C1040,14 1120,32 1200,24 C1280,16 1360,30 1440,20 L1440,52 Z" fill="#F4F1EA"/></svg>
 
-  <!-- BG elements -->
-  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,185,21,0.12) 1.3px,transparent 1.9px),radial-gradient(rgba(255,185,21,0.04) 0.8px,transparent 1.2px);background-size:24px 24px,12px 12px;background-position:0 0,6px 6px;"></div>
-  <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--yellow);z-index:2;"></div>
-  <svg style="position:absolute;bottom:-1px;left:0;width:100%;z-index:2;" height="52" viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,52 L0,28 C80,16 160,36 240,24 C320,12 400,32 480,22 C560,12 640,30 720,22 C800,14 880,34 960,24 C1040,14 1120,32 1200,24 C1280,16 1360,30 1440,20 L1440,52 Z" fill="#F4F1EA"/></svg>
-  <div style="position:absolute;right:-10px;top:-40px;font-family:'Anton',sans-serif;font-size:clamp(300px,42vw,600px);line-height:1;color:rgba(255,255,255,0.02);pointer-events:none;z-index:0;user-select:none;letter-spacing:-.02em;">07</div>
+  <!-- Raios luminosos via CSS pseudo -->
+  <div id="midia2-rays"></div>
 
   <div class="max-w-7xl mx-auto px-6" style="position:relative;z-index:1;">
 
@@ -873,7 +863,7 @@
            ESQUERDA: slider de imagens
            DIREITA: índice + comentários
       ════════════════════════════════════ -->
-      <div id="fb-post-body" style="display:grid;grid-template-columns:1fr;border-top:1px solid #e4e6ea;">
+      <div id="fb-post-body" style="display:grid;grid-template-columns:1fr;border-top:1px solid #e4e6ea;min-height:420px;">
 
         <!-- ── COLUNA ESQUERDA: Slider de imagens ── -->
         <div style="position:relative;border-right:1px solid #e4e6ea;">
@@ -918,43 +908,8 @@
           </div>
         </div>
 
-        <!-- ── COLUNA DIREITA: Índice de imagens + curtidas + comentários ── -->
-        <div style="display:flex;flex-direction:column;overflow:hidden;">
-
-          <!-- Índice dos 7 slides -->
-          <div style="padding:14px 16px 10px;border-bottom:1px solid #e4e6ea;">
-            <p style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#90949c;margin-bottom:10px;">Publicações neste post</p>
-            <div id="slide-index" style="display:flex;flex-direction:column;gap:0;">
-              <button class="slide-thumb-btn" data-slide="0" onclick="imgGoTo(0)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:rgba(0,63,102,0.06);cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:var(--yellow);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:var(--blue);">1</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">4 Dicas para evitar golpes</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="1" onclick="imgGoTo(1)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">2</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Desconfie sempre da urgência</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="2" onclick="imgGoTo(2)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">3</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Verificação em duas etapas</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="3" onclick="imgGoTo(3)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">4</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Monitore seus dados e CPF</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="4" onclick="imgGoTo(4)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">5</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Acesse nosso site completo</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="5" onclick="imgGoTo(5)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">6</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Veja o vídeo informativo</span>
-              </button>
-              <button class="slide-thumb-btn" data-slide="6" onclick="imgGoTo(6)" style="display:flex;align-items:center;gap:10px;padding:7px 8px;border:none;background:transparent;cursor:pointer;border-radius:4px;text-align:left;transition:background .15s;width:100%;">
-                <span style="width:34px;height:34px;border-radius:3px;background:#e4e6ea;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:16px;color:#65676b;">7</span>
-                <span style="font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;color:#050505;">Siga no Facebook</span>
-              </button>
-            </div>
-          </div>
+        <!-- ── COLUNA DIREITA: Curtidas + ações + comentários ── -->
+        <div id="fb-right-col" style="display:flex;flex-direction:column;overflow:hidden;border-left:1px solid #e4e6ea;">
 
           <!-- Curtidas & contagem -->
           <div style="padding:8px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e4e6ea;flex-shrink:0;">
@@ -963,7 +918,8 @@
               <span style="width:20px;height:20px;border-radius:50%;background:#e41e3f;border:2px solid #fff;margin-left:-6px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;">❤️</span>
               <span style="font-size:14px;color:#65676b;font-family:'Archivo',sans-serif;margin-left:4px;">14</span>
             </div>
-            <button onclick="toggleComments()" style="background:none;border:none;font-size:13px;color:#1877f2;font-family:'Archivo',sans-serif;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;" id="comments-toggle-btn">
+            <!-- Botão toggle apenas visível no mobile -->
+            <button onclick="toggleComments()" id="comments-toggle-btn" style="background:none;border:none;font-size:13px;color:#1877f2;font-family:'Archivo',sans-serif;font-weight:700;cursor:pointer;display:none;align-items:center;gap:5px;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               <span id="comments-toggle-label">Ver 5 comentários</span>
               <svg id="comments-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="transition:transform .25s;"><polyline points="6 9 12 15 18 9"/></svg>
@@ -977,8 +933,8 @@
             <button style="flex:1;padding:8px 4px;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;color:#65676b;transition:background .15s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#65676b" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Compartilhar</button>
           </div>
 
-          <!-- Comentários colapsáveis -->
-          <div id="post-comments" style="display:none;overflow-y:auto;padding:12px 16px 8px;flex-direction:column;gap:10px;flex:1;min-height:0;">
+          <!-- Comentários: sempre visível no desktop, toggle no mobile -->
+          <div id="post-comments" style="overflow-y:auto;padding:12px 16px 8px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;">
             <div style="display:flex;gap:8px;">
               <div style="width:32px;height:32px;border-radius:50%;background:#c0cfe8;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;color:#003F66;">C</div>
               <div style="background:#f0f2f5;border-radius:16px;padding:8px 12px;flex:1;">
@@ -1032,33 +988,90 @@
 </section>
 
 <style>
+/* ── Layout: 2 colunas no desktop ── */
 @media (min-width: 700px) {
   #fb-post-body { grid-template-columns: 1fr 320px !important; }
 }
 @media (min-width: 900px) {
-  #fb-post-body { grid-template-columns: 1fr 360px !important; }
+  #fb-post-body { grid-template-columns: 1fr 380px !important; }
 }
-.slide-thumb-btn:hover { background: rgba(0,63,102,0.07) !important; }
-/* Animated aurora background for the section */
-#midia2 {
-  background: #011B2F !important;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255,185,21,0.13) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(0,63,102,0.5) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(255,185,21,0.05) 0%, transparent 70%) !important;
+
+/* Desktop: comentários sempre visíveis */
+@media (min-width: 700px) {
+  #comments-toggle-btn { display: none !important; }
+  #post-comments       { display: flex !important; }
+  #fb-right-col        { position: sticky; top: 64px; max-height: calc(100vh - 80px); }
 }
-/* Glowing post shadow */
-#fb-single-post {
-  box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,185,21,0.18), 8px 8px 0 0 var(--yellow), 0 0 60px rgba(255,185,21,0.08) !important;
+
+/* Mobile: botão toggle aparece, comentários ocultados por padrão */
+@media (max-width: 699px) {
+  #comments-toggle-btn { display: flex !important; }
+  #post-comments       { display: none; }
+  #post-comments.open  { display: flex !important; animation: slideDown .3s ease; }
+  #fb-right-col        { border-left: none !important; border-top: 1px solid #e4e6ea; }
 }
-/* Comments reveal animation */
-#post-comments.open {
-  display: flex !important;
-  animation: slideDown .3s ease;
-}
+
 @keyframes slideDown {
   from { opacity:0; transform:translateY(-8px); }
   to   { opacity:1; transform:translateY(0); }
+}
+
+.slide-thumb-btn:hover { background: rgba(0,63,102,0.07) !important; }
+
+/* ══════════════════════════════════════════
+   FUNDO ESPETACULAR — #midia2
+   Camadas: base escura · noise · raios diagonais
+   · halos amarelos · partículas · grade
+   ══════════════════════════════════════════ */
+#midia2 {
+  background-color: #020D18 !important;
+  background-image:
+    /* Grade sutil de pontos */
+    radial-gradient(rgba(255,185,21,0.18) 1px, transparent 1.5px),
+    /* Halo central quente */
+    radial-gradient(ellipse 70% 55% at 50% 48%, rgba(255,185,21,0.07) 0%, transparent 65%),
+    /* Halo esquerdo azul royal */
+    radial-gradient(ellipse 55% 70% at -5% 30%, rgba(0,63,102,0.55) 0%, transparent 58%),
+    /* Halo direito azul profundo */
+    radial-gradient(ellipse 50% 65% at 105% 70%, rgba(0,42,69,0.7) 0%, transparent 55%),
+    /* Acento amarelo top-left */
+    radial-gradient(ellipse 35% 30% at 8% 5%, rgba(255,185,21,0.10) 0%, transparent 60%),
+    /* Acento amarelo bottom-right */
+    radial-gradient(ellipse 28% 25% at 94% 95%, rgba(255,185,21,0.09) 0%, transparent 55%) !important;
+  background-size: 22px 22px, auto, auto, auto, auto, auto !important;
+  background-position: 0 0, center, left, right, top left, bottom right !important;
+}
+
+/* Raios diagonais luminosos (via pseudo, usando um div wrapper já existente) */
+#midia2-rays {
+  position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+#midia2-rays::before {
+  content:'';
+  position:absolute;
+  top:-20%;left:18%;
+  width:1px;height:200%;
+  background:linear-gradient(to bottom, transparent 0%, rgba(255,185,21,0.10) 30%, rgba(255,185,21,0.18) 50%, rgba(255,185,21,0.10) 70%, transparent 100%);
+  transform:rotate(22deg);
+  transform-origin:top center;
+}
+#midia2-rays::after {
+  content:'';
+  position:absolute;
+  top:-20%;right:22%;
+  width:1px;height:200%;
+  background:linear-gradient(to bottom, transparent 0%, rgba(0,63,102,0.25) 30%, rgba(0,63,102,0.35) 50%, rgba(0,63,102,0.25) 70%, transparent 100%);
+  transform:rotate(-18deg);
+  transform-origin:top center;
+}
+
+/* Glowing post shadow */
+#fb-single-post {
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.75),
+    0 0 0 1px rgba(255,185,21,0.20),
+    8px 8px 0 0 var(--yellow),
+    0 0 80px rgba(255,185,21,0.10) !important;
 }
 </style>
 
