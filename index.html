@@ -119,7 +119,7 @@
       </div>
       <div>
         <p class="eyebrow" style="color:rgba(1,27,47,0.4);">duração</p>
-        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">7–10 minutos</p>
+        <p class="font-archivo font-bold text-[15px] mt-1" style="color:var(--ink);">12 minutos</p>
       </div>
       <div>
         <p class="eyebrow" style="color:rgba(1,27,47,0.4);">base</p>
@@ -215,41 +215,296 @@
          style="color:var(--blue);">vídeo informativo</p>
       <p class="font-archivo text-[14px] max-w-xl mx-auto mt-5"
          style="color:rgba(1,27,47,0.6);">
-        Em breve disponível aqui. 
+        Passe o mouse para iniciar. Pause e retome quando quiser — o vídeo continua de onde você parou.
       </p>
     </div>
 
     <!-- ╔═══════════════════════════════════════════╗
-         ║   CAMPO DE VÍDEO — substitua pelo embed  ║
-         ╚═══════════════════════════════════════════╝
-         Para adicionar o vídeo, substitua TODO o bloco
-         "video-placeholder" abaixo por um iframe, por exemplo:
+         ║        PLAYER DE VÍDEO — Entre Clicks    ║
+         ╚═══════════════════════════════════════════╝ -->
+    <div class="fade-in video-block" id="ec-video-wrapper"
+         style="position:relative;cursor:pointer;"
+         onmouseenter="ecVideoHoverPlay()"
+         onmouseleave="ecVideoHoverPause()">
 
-         <iframe
-           src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-           title="Entre Clicks — Vídeo Informativo"
-           frameborder="0"
-           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-           allowfullscreen
-           style="width:100%;aspect-ratio:16/9;">
-         </iframe>
-    -->
-    <div class="fade-in video-block">
-      <div class="video-placeholder">
-        <div class="video-placeholder-icon">
-          <i data-lucide="play" style="width:32px;height:32px;color:var(--ink);margin-left:4px;"></i>
+      <!-- Vídeo -->
+      <video id="ec-video"
+             src="videoplayback.mp4"
+             preload="metadata"
+             playsinline
+             style="width:100%;aspect-ratio:16/9;display:block;background:#020D18;">
+      </video>
+
+      <!-- Overlay de controles -->
+      <div id="ec-overlay"
+           style="position:absolute;inset:0;display:flex;flex-direction:column;
+                  justify-content:space-between;padding:0;
+                  background:linear-gradient(to top,rgba(1,11,21,.85) 0%,transparent 38%,transparent 65%,rgba(1,11,21,.45) 100%);
+                  opacity:0;transition:opacity .3s;pointer-events:none;">
+
+        <!-- Top bar: título + ícone hover -->
+        <div style="padding:18px 20px 0;display:flex;align-items:center;justify-content:space-between;">
+          <span class="eyebrow" style="color:rgba(255,255,255,.75);font-size:10px;">
+            ★ · Entre Clicks · Vídeo Informativo
+          </span>
+          <span id="ec-hover-hint"
+                style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;
+                       letter-spacing:.1em;color:rgba(255,255,255,.55);">
+            PASSE O MOUSE PARA REPRODUZIR
+          </span>
         </div>
-        <p class="video-placeholder-label">Vídeo em breve</p>
-        <p class="font-archivo text-[12px] text-center max-w-xs"
-           style="color:rgba(255,255,255,.3);position:relative;z-index:1;">
+
+        <!-- Centro: ícone play grande (visível só quando pausado) -->
+        <div id="ec-play-icon"
+             style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+                    width:72px;height:72px;border-radius:50%;
+                    background:var(--yellow);border:3px solid rgba(255,255,255,.2);
+                    display:flex;align-items:center;justify-content:center;
+                    box-shadow:0 8px 32px rgba(0,0,0,.5);
+                    transition:transform .2s,box-shadow .2s;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="var(--ink)" style="margin-left:4px;">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+        </div>
+
+        <!-- Bottom bar: barra de progresso + botões -->
+        <div style="padding:0 14px 14px;pointer-events:all;">
+
+          <!-- Progress bar clicável -->
+          <div id="ec-progress-track"
+               style="width:100%;height:4px;background:rgba(255,255,255,.2);
+                      border-radius:2px;cursor:pointer;margin-bottom:12px;position:relative;"
+               onclick="ecSeek(event)">
+            <div id="ec-progress-bar"
+                 style="height:100%;width:0%;background:var(--yellow);border-radius:2px;
+                        transition:width .25s linear;pointer-events:none;"></div>
+          </div>
+
+          <!-- Controles -->
+          <div style="display:flex;align-items:center;gap:10px;">
+
+            <!-- Play/Pause -->
+            <button id="ec-btn-play"
+                    onclick="ecTogglePlay(event)"
+                    style="width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;
+                           background:var(--yellow);display:flex;align-items:center;justify-content:center;
+                           flex-shrink:0;transition:transform .15s;">
+              <svg id="ec-icon-play" width="16" height="16" viewBox="0 0 24 24" fill="var(--ink)" style="margin-left:3px;">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+              <svg id="ec-icon-pause" width="16" height="16" viewBox="0 0 24 24" fill="var(--ink)" style="display:none;">
+                <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+              </svg>
+            </button>
+
+            <!-- Restart -->
+            <button onclick="ecRestart(event)"
+                    title="Reiniciar"
+                    style="width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;
+                           background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+                           flex-shrink:0;transition:background .15s;"
+                    onmouseenter="this.style.background='rgba(255,255,255,.22)'"
+                    onmouseleave="this.style.background='rgba(255,255,255,.12)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-4.95"/>
+              </svg>
+            </button>
+
+            <!-- Tempo atual / duração -->
+            <span id="ec-time"
+                  style="font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;
+                         color:rgba(255,255,255,.7);flex:1;">
+              0:00 / 0:00
+            </span>
+
+            <!-- Mute -->
+            <button id="ec-btn-mute"
+                    onclick="ecToggleMute(event)"
+                    style="width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;
+                           background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+                           flex-shrink:0;transition:background .15s;"
+                    onmouseenter="this.style.background='rgba(255,255,255,.22)'"
+                    onmouseleave="this.style.background='rgba(255,255,255,.12)'">
+              <svg id="ec-icon-sound" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+              <svg id="ec-icon-mute" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+              </svg>
+            </button>
+
+            <!-- Fullscreen -->
+            <button onclick="ecFullscreen(event)"
+                    title="Tela cheia"
+                    style="width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;
+                           background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;
+                           flex-shrink:0;transition:background .15s;"
+                    onmouseenter="this.style.background='rgba(255,255,255,.22)'"
+                    onmouseleave="this.style.background='rgba(255,255,255,.12)'">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>
+                <line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div><!-- /overlay -->
+
+      <!-- Ended screen -->
+      <div id="ec-ended-screen"
+           style="display:none;position:absolute;inset:0;background:rgba(1,11,21,.82);
+                  flex-direction:column;align-items:center;justify-content:center;gap:16px;">
+        <p class="font-display" style="color:#fff;font-size:clamp(22px,4vw,40px);text-align:center;
+                                       text-transform:uppercase;letter-spacing:-.01em;line-height:1.1;">
+          Obrigado por assistir!
         </p>
+        <button onclick="ecRestart(event)"
+                style="display:flex;align-items:center;gap:8px;padding:12px 28px;
+                       background:var(--yellow);border:none;cursor:pointer;
+                       font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;
+                       color:var(--ink);letter-spacing:.05em;box-shadow:4px 4px 0 var(--yellow-deep);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 .49-4.95"/>
+          </svg>
+          Assistir novamente
+        </button>
       </div>
-    </div>
+
+    </div><!-- /video-block -->
     <!-- fim do campo de vídeo -->
 
     <p class="font-archivo text-[12px] text-center mt-4" style="color:rgba(1,27,47,0.4);">
-      Vídeo informativo · 7–10 minutos · Projeto acadêmico — 2026
+      Vídeo informativo · Projeto acadêmico — 2026
     </p>
+
+    <!-- Link YouTube -->
+    <div class="flex justify-center mt-5 fade-in">
+      <a href="https://www.youtube.com/watch?v=9d86kd3-kDk&t=293s"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="inline-flex items-center gap-3 px-6 py-3 font-archivo font-bold text-[14px] hard-shadow"
+         style="background:var(--blue);color:#fff;text-decoration:none;transition:transform .2s;"
+         onmouseenter="this.style.transform='translateY(-2px)'"
+         onmouseleave="this.style.transform='translateY(0)'">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        Assistir também no YouTube
+      </a>
+    </div>
+
+    <script>
+    (function(){
+      var vid    = document.getElementById('ec-video');
+      var wrap   = document.getElementById('ec-video-wrapper');
+      var overlay= document.getElementById('ec-overlay');
+      var bar    = document.getElementById('ec-progress-bar');
+      var timeLbl= document.getElementById('ec-time');
+      var playIco= document.getElementById('ec-play-icon');
+      var endScr = document.getElementById('ec-ended-screen');
+      var iconPl = document.getElementById('ec-icon-play');
+      var iconPa = document.getElementById('ec-icon-pause');
+      var iconSd = document.getElementById('ec-icon-sound');
+      var iconMt = document.getElementById('ec-icon-mute');
+      var hoverHint = document.getElementById('ec-hover-hint');
+      var isHovering = false;
+      var isMuted  = false;
+
+      function fmt(s){
+        s = Math.floor(s||0);
+        return Math.floor(s/60)+':'+(s%60<10?'0':'')+(s%60);
+      }
+      function syncUI(){
+        var pct = vid.duration ? (vid.currentTime/vid.duration)*100 : 0;
+        bar.style.width = pct+'%';
+        timeLbl.textContent = fmt(vid.currentTime)+' / '+fmt(vid.duration);
+        var paused = vid.paused || vid.ended;
+        playIco.style.display = paused ? 'flex' : 'none';
+        iconPl.style.display  = paused ? '' : 'none';
+        iconPa.style.display  = paused ? 'none' : '';
+      }
+
+      vid.addEventListener('timeupdate', syncUI);
+      vid.addEventListener('loadedmetadata', syncUI);
+      vid.addEventListener('play',  syncUI);
+      vid.addEventListener('pause', syncUI);
+
+      vid.addEventListener('ended', function(){
+        endScr.style.display = 'flex';
+        overlay.style.opacity = '0';
+      });
+
+      /* Hover: play ao entrar, pause ao sair se não estava tocando manualmente */
+      var manualPlay = false;
+      window.ecVideoHoverPlay = function(){
+        isHovering = true;
+        overlay.style.opacity = '1';
+        hoverHint.style.display = 'none';
+        if(!manualPlay && vid.paused && !vid.ended){ vid.play(); }
+      };
+      window.ecVideoHoverPause = function(){
+        isHovering = false;
+        overlay.style.opacity = '0';
+        if(!manualPlay && !vid.paused){ vid.pause(); }
+      };
+
+      window.ecTogglePlay = function(e){
+        e && e.stopPropagation();
+        manualPlay = true;
+        if(vid.paused){ vid.play(); } else { vid.pause(); manualPlay = false; }
+      };
+      window.ecRestart = function(e){
+        e && e.stopPropagation();
+        manualPlay = false;
+        endScr.style.display = 'none';
+        vid.currentTime = 0;
+        vid.play();
+        manualPlay = true;
+        overlay.style.opacity = '1';
+      };
+      window.ecToggleMute = function(e){
+        e && e.stopPropagation();
+        isMuted = !isMuted;
+        vid.muted = isMuted;
+        iconSd.style.display = isMuted ? 'none' : '';
+        iconMt.style.display = isMuted ? '' : 'none';
+      };
+      window.ecSeek = function(e){
+        var rect = e.currentTarget.getBoundingClientRect();
+        var pct  = (e.clientX - rect.left) / rect.width;
+        vid.currentTime = pct * vid.duration;
+      };
+      window.ecFullscreen = function(e){
+        e && e.stopPropagation();
+        if(wrap.requestFullscreen)      wrap.requestFullscreen();
+        else if(wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+      };
+
+      /* Clique direto no wrapper: toggle play/pause */
+      wrap.addEventListener('click', function(e){
+        if(e.target === wrap || e.target === vid || e.target === overlay){
+          ecTogglePlay();
+        }
+      });
+
+      /* Exibe overlay se mouse se mover sobre ele */
+      wrap.addEventListener('mousemove', function(){
+        if(isHovering) overlay.style.opacity = '1';
+      });
+
+    })();
+    </script>
   </div>
 </section>
 
